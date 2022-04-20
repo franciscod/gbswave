@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# wrapper to run gbsplay alongside gbswave
+# usage: somewhere in your path, add two symlinks:
+# * one to the real gbsplay, name it _gbsplay
+# * another one to this file, name it gbsplay (will shadow the real one)
+# then invoke gbsplay as usual
+
+GBSPLAY=_gbsplay
+THIS=$(readlink -f "$0")
+HERE=$(dirname "$THIS")
+
+$GBSPLAY -v "$@" | $HERE/venv/bin/python3 $HERE/gbswave.py
