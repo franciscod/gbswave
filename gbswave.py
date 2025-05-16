@@ -7,11 +7,6 @@ def get_wave_graph(wave):
 
     wave_chars = []
 
-    # remove last 2 ff
-    if wave[-2:] != "ff":
-        raise ValueError
-    wave = wave[:-2]
-
     for i, s in enumerate(wave):
         n = int(s, 16)
         n = 16 - n
